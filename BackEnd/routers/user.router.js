@@ -3,6 +3,7 @@ import connections from "../index.js";
 import registeration_user from "../controllers/users_Authentication/registeration_user.controller.js";
 import login_user from "../controllers/users_Authentication/login_user.controllers.js";
 import code from "../controllers/users_Authentication/code_confirmation.js";
+import {envData} from '../envdata.js'
 // import AuthGoogle from "../controllers/users_Authentication/Auth_google.js";
 
 // import session from "express-session";
@@ -14,8 +15,8 @@ const route = Router();
 
 
 passport.use(new GoogleStrategy({
-    clientID: '',
-    clientSecret: '',
+    clientID: envData["google OAuth"].key,
+    clientSecret: envData["google OAuth"].secret,
     callbackURL: 'http://127.0.0.1:3000/google'
 }, async (accessToken, refreshToken, profile, done) => {
     // console.log("app.js: ", profile._json.picture)
@@ -43,8 +44,8 @@ passport.use(new GoogleStrategy({
 
 //GitHub Passport 
 passport.use(new GithubStrategy({
-    clientID: '',
-    clientSecret: '',
+    clientID: envData["git OAuth"].key,
+    clientSecret: envData["git OAuth"].secret,
     callbackURL: 'http://127.0.0.1:3000/github'
 }, async (accessToken, refreshToken, profile, done) => {
     await connections.query(`SELECT userId, name FROM authgithub_user WHERE userId = '${profile._json.id}' `, 

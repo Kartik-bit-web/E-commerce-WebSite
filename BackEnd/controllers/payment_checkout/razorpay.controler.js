@@ -1,9 +1,10 @@
 import Razorpay from 'razorpay';
 import {validatePaymentVerification} from 'razorpay/dist/utils/razorpay-utils.js';
+import {envData} from '../../envdata.js'
 
 const instence = new Razorpay({
-    key_id: '',
-    key_secret: ''
+    key_id: envData.razorepay.userkey,
+    key_secret: envData.razorepay['secret code']
 })
 
 const paymentCreate = async (req, res) => {

@@ -13,6 +13,8 @@ uhi.js
 panination/
 used.txt
 data.json
+envData.js
+dummi.jsx
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json

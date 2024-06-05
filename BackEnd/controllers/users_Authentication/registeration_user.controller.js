@@ -1,11 +1,10 @@
 import connections from "../../index.js";
-import mailSender from "../../utilities/forgot_password_email.js";
+import {mailSender} from "../../utilities/forgot_password_email.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 const registeration_user = async (req, res) => {
     const {name, email, password} = req.body; 
-    // console.log(req.body)
 
     //Validations 
     if((name && email && password) == ""){
