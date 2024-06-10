@@ -39,15 +39,14 @@ const registeration_user = async (req, res) => {
                             if(err){
                                 console.log(err)
                             }
-                            await mailSender(disit);
-                            let hashed = await bcrypt.hash(String(disit), 10);
-                            let data = {code: hashed};
-                            let make_hashed_as_token = await jwt.sign(data, 'thisismysecretid', {expiresIn: '1h'});
-                            // res.cookie("some" , make_hashed_as_token);
-                            res.status(200).json({make_hashed_as_token, email: email, name: name});
-                            
-                        })
-                        
+                            const sql = `INSERT INTO useremailverify(userId, code) VALUES(?, ?)`;
+                            const Value = [result.insertId, disit]
+                            connections.query(sql, Value, async (err, I_insert) => {
+                                if(err) return console.log(err);
+                                await mailSender(disit);
+                                res.status(200).json({result, email: email, name: name});
+                            });
+                        });
                     }
                 });
             } catch (error) {

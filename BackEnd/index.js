@@ -1,4 +1,4 @@
-import mysql from 'mysql2';
+import mysql from 'mysql';
 
 const connections = mysql.createConnection({
     host: '127.0.0.1',
@@ -8,28 +8,13 @@ const connections = mysql.createConnection({
     
 });
 
-// console.log(process.env)
+// let sql = `INSERT INTO useremailverify(userId, code) VALUES(?, ?)`;
+// let values = [1, 123212]
 
-
-// connection.query('SELECT * FROM category', (result, err) => {
-//     if(err){
-//         return console.log(err)
-//     }
-//     console.log(result);
-// });
-
-// connection.connect((err) => {
-//     if(err){
-//         return console.log(err)
-//     }
-//     console.log('connection connected to mysql')
+// connections.query(sql, values, (err, result) => {
+//     if(err) return console.log(err);
+//     console.log(result.insertId)
 // })
-
-// connection.end((err) => {
-//     if(err){
-//         return console.log(err)
-//     }
-//     console.log('Connection Closed')
-// });
+// // connections.end()
 
 export default connections;

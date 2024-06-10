@@ -29,9 +29,11 @@ function RegisterUser(){
         console.log(data)
         
         if(response.status === 200){
-            // console.log(data)
-            Cookies.set('code', data.make_hashed_as_token, {expires: 600});
-            return navigate('/login')
+            console.log(data)
+            console.log("insert: ", data.result['insertId'])
+            let userId = await data.result['insertId']
+            Cookies.set('code', userId, {expires: 600});
+            return navigate('/code');
         }
         
     };

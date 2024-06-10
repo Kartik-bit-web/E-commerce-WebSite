@@ -11,7 +11,7 @@ import Categories from '../components/categories.jsx';
 import Products from '../components/Products.jsx';
 import RegisterUser from '../components/register.user.jsx';
 import LogInUser from '../components/login.user.jsx';
-import CodeVerify from '../components/verfyCode.user.jsx';
+import Verify from '../components/codeVeryfi/codeVeryfing.jsx';
 //
 
 import CheckOut from '../components/checkOut/checkOutBtn.jsx';
@@ -33,7 +33,7 @@ const router = createBrowserRouter(
         <Route path='/sub-categories' element = {<SubCategory /> } />
         <Route path='/registeration' element= {<RegisterUser />}/>
         <Route path='/login' element= {<LogInUser />}/>
-        <Route path='/code' element= {<CodeVerify />}/>
+        <Route path='/code' element= {<Verify />}/>
         <Route path='/cart' element= {<CartBtn />}/>
         <Route path='/CheckOut' element= {<CheckOut />}/>
         <Route path='/premiumVideo' element={<PrivateVideo />} />
