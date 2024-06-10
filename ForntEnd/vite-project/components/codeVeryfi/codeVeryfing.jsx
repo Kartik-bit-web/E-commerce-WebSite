@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import Cookies from 'js-cookie';
 
 function Verify(){
+
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         code: '',
     });
@@ -25,7 +28,14 @@ function Verify(){
             body: JSON.stringify(resId)
         });
 
-        console.log(await response.json());
+        let result = await response.json();
+        console.log(result)
+        if(response.status == 200){
+            return navigate('/login')
+        }
+        else{
+            return navigate('/code')
+        }
         
     }
         

@@ -1,9 +1,26 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import 'axios';
+import Cookies from "js-cookie";
+// import 'axios';
 
 function Header(){
     const [useCategory, setCategory] = useState([]);
+    const [islogin, setIsLogin] = useState(false)
+
+    useEffect(() => {
+        if(Cookies.get('UserTrue')){
+            setIsLogin(true)
+        }else{
+            setIsLogin(false)
+        }
+    }, []);
+
+    const handleLogout = () => {
+        Cookies.remove('UserTrue')
+        Cookies.remove('userInfo');
+        setIsLogin(false);
+      }
+    
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -73,10 +90,23 @@ function Header(){
                                 <Link 
                                     to="/premiumVideo" 
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                                    Prime Videos
+                                        Prime Videos
                                 </Link>
                                 
-                                <Link to="/login" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</Link>
+                                {islogin?
+                                    <h5 
+                                        onClick={handleLogout}
+                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                                        logout
+                                    </h5>
+                                    :
+                                    <Link 
+                                        to={"/login"}
+                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                                            Login
+                                    </Link>
+                                }
+                                
                             </div>
                         </div>
                     </div>

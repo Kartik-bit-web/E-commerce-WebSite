@@ -1,7 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
+import Cookies from 'js-cookie';
 
 function LogInUser(){
+
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -21,8 +25,14 @@ function LogInUser(){
             },
             body: JSON.stringify(formData)
         });
+
         const data = await response.json()
-        console.log(data)
+
+        if(response.status == 200){
+            Cookies.set("userInfo", JSON.stringify(data));
+            Cookies.set('UserTrue', 'true');
+            return navigate('/')
+        }
     }
         
     return(
