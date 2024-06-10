@@ -13,20 +13,6 @@ function PrivateVideo(){
         getVideos();
     }, []);
 
-
-    // async function play(){
-    //     if(videoRef.current){
-    //         videoRef.current.play();
-    //     }
-    // }
-
-    // async function pause(){
-    //     if(videoRef.current){
-    //         videoRef.current.pause();
-    //         console.log(videoRef)
-    //     }
-    // }
-
     return(
         <>
 
@@ -37,24 +23,13 @@ function PrivateVideo(){
 
                 {useVideo.map((video, index) => (
                     <Link 
-                    key={index}
-                    to={`/primeVideos/${video}`}>
-                        <div className="p-2 text-blue-500 hover:text-blue-300">
-                            <p>{video}</p>
-                        </div>
-                        
-
+                        key={index}
+                        to={`/primeVideos/${video}`}>
+                            <div className="p-2 text-blue-500 hover:text-blue-300">
+                                <p>{video}</p>
+                            </div>
                     </Link>
                 ))}
-
-
-                {/* <video width="600" ref={videoRef} controls>
-                    <source src="http://127.0.0.1:3000/privateVideo" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-                <button onClick={play}>Play</button>
-                <br />
-                <button onClick={pause}>pause</button> */}
 
             </div>
         

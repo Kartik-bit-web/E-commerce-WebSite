@@ -1,13 +1,15 @@
 import connections from "../index.js";
 
 const AuthCheck = async (req, res, next) => {
-    const sql = `SELECT email FROM registeration_user WHERE email = '${req.signedCookies.userId?.email}' `;
+    console.log(req.params)
+    console.log(req.body)
+    const sql = `SELECT email FROM registeration_user WHERE email = '${req.body?.email}' `;
     await connections.query(sql, (err, result) => {
         if(err) throw err;
         if(result.length > 0){
             next()
         }else{
-            return res.status(400).json({"data":  " You are not LoggedIn!"})
+            return res.status(401).json({"data":  " You are not LoggedIn!"})
         }
     })
 }

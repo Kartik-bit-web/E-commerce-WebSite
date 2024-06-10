@@ -10,15 +10,11 @@ const getVideoDetail = async (req, res) => {
 
 const privateControl = (req, res) => {
     let file = req.params
-    // console.log(file.videoName)
-
-  // res.status(200).json(req.params)
+    // console.log("hey: ", file.videoName)
     const videoPath  = path.join('D:/Download/react_chai', file.videoName);
-    // const __dirname = path.dirname(__filename);
 
     const stat = fs.statSync(videoPath);
     const fileSize = stat.size;
-    // console.log("File Size: ", fileSize)
     const range = req.headers.range;
     if(range){
         const parts = range.replace(/bytes=/, '').split('-');
