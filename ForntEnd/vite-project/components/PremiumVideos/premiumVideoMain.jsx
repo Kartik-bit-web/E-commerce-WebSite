@@ -15,12 +15,9 @@ function PrivateVideo(){
 
     return(
         <>
-
             <h1 className="p-3 text-center text-2xl text-red-500">Premimum videos</h1>
             <hr />
-
             <div className="p-3 ">
-
                 {useVideo.map((video, index) => (
                     <Link 
                         key={index}
@@ -30,10 +27,7 @@ function PrivateVideo(){
                             </div>
                     </Link>
                 ))}
-
             </div>
-        
-        
         </>
     )
 }

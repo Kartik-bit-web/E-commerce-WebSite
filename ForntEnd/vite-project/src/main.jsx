@@ -14,6 +14,9 @@ import LogInUser from '../components/login.user.jsx';
 import Verify from '../components/codeVeryfi/codeVeryfing.jsx';
 //
 
+import {Subscription}  from '../components/SubscriptionPage/AddSubscription.jsx';
+
+//
 import CheckOut from '../components/checkOut/checkOutBtn.jsx';
 import CartBtn from '../components/cart_section/checkOutCart.jsx';
 // import Header from '../components/header.jsx'
@@ -38,6 +41,7 @@ const router = createBrowserRouter(
         <Route path='/CheckOut' element= {<CheckOut />}/>
         <Route path='/premiumVideo' element={<PrivateVideo />} />
         <Route path='/primeVideos/:videoName' element={<PlayVideo />} />
+        <Route path='/primeVideos/Subscription' element={<Subscription />} />
       </Route>
     )
   

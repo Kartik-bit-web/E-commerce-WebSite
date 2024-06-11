@@ -2,7 +2,7 @@ import connections from ".././index.js"
 
 const CheckUserPaid = (req, res, next) => {
     const userData = req.body
-    const sql = `SELECT engable FROM paiuser WHERE useremail = ?`;
+    const sql = `SELECT engable FROM paiuser WHERE paiduser = ?`;
     const values = [userData.email];
 
     connections.query(sql, values, (err, result) => {

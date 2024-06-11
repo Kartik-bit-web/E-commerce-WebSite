@@ -11,7 +11,8 @@ import privateVideo from './routers/private.route.js';
 import {} from './models/User_database/registration_user.model.js';
 import {} from './models/User_database/Auth_google.models.js';
 import {} from './models/User_database/Auth_github.models.js';
-import {} from './models/User_database/userVerifyCode.js'
+import {} from './models/User_database/userVerifyCode.js';
+import {} from './models/private_Database/paidUserbase.js';
 
 //
 import bodyParser from 'body-parser';

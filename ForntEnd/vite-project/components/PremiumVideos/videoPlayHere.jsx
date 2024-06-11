@@ -28,6 +28,9 @@ const PlayVideo = () => {
         if(response.status === 401){
           return navigate('/login');
         }
+        if(response.status === 402){
+          return navigate('/primeVideos/Subscription');
+        }
 
         let data = await response.blob()
         let url = URL.createObjectURL(data);
